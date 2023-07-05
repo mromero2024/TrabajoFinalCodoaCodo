@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo_huespedes.css">   
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;1,200&family=Vina+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a139c9b34f.js" crossorigin="anonymous"></script>
+    <title>Huespedes Registrados</title>
+</head>
+<header class="header">
+    <div class="barra">
+        <div class="lilas">
+            <i class="rama fa-brands fa-pagelines"></i>
+            <h1 class="titulo">Cabañas Las Lilas</h1>
+        </div>
+        <nav class="navegacion">
+            <a class="enlace" href="index.html">Inicio</a>
+            <a class="enlace" href="#galery">Galeria</a>
+            <a class="enlace" href="#ubication">Ubicación</a>
+            <a class="enlace" href="#contact">Contacto</a>
+            <a class="enlace" href="cotizaciones.html">Cotizaciones</a>
+        </nav>          
+     </div> 
+    
+</header>
+<body>
+    <main>
+        
+      <div id="app" class="container">
+        <br>
+        
+       
+            <h1 class="titulo_tabla">Huespedes Registrados</h1> 
+            <div class="panel_superior">
+            <input class="buscador" id="buscador" type="search" placeholder="Buscar">
+            <a class="btn btn-primary nuevo" href="registro.html">+</a>
+            </div>
+            
+        <section v-if="error">Lo sentimos, se produjo un error</section>
+        <section v-else>
+            <section v-if="Cargando">
+            <!--   <div class="spinner-border"></div> --> 
+                <p>Cargando...</p>
+            </section>
+        <section v-else>
+
+            <div class="table-responsive">
+                
+                <table class="table table-bordered">
+                    
+                    <thead>
+                        <tr>
+                            <th class="titulo_columna" scope="col">Id</th>
+                            <th class="titulo_columna" scope="col">Nombre</th>
+                            <th class="titulo_columna" scope="col">Contraseña</th>
+                            <th class="titulo_columna" scope="col">Email</th>
+                            <th class="titulo_columna" scope="col">Edad</th>
+                            <th class="titulo_columna" scope="col">Imagen</th>
+                            <th class="titulo_columna" scope="col">Imagen</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="huesped in huespedes" class="fila">
+                            <td class="display dato" scope="row">{{huesped.id}}</td>
+                            <td id="dato_nombre" class="display dato dato_nombre">{{huesped.nombre}}</td>
+                            <td class="display dato dato_nombre">{{huesped.clave}}</td>
+                            <td class="display dato">{{huesped.email}}</td>
+                            <td class="display dato">{{huesped.edad}}</td>            
+                            <td class="display dato">
+                                <img width="60" :src="huesped.imagen" :alt="huesped.nombre">         
+                            </td>
+                            <td class="display botones">
+                                <button type="button" class="btn btn-danger" v-on:click = "eliminar(huesped.id)">Eliminar</button>
+                                <a type="button" class="btn btn-primary" :href="'huesped_editar.html?id='+ huesped.id+'&nombre=' +huesped.nombre+ '&clave=' +huesped.clave+ '&email=' +huesped.email+ '&edad=' +huesped.edad + '&imagen=' +huesped.imagen">Editar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+      </section>
+    </div>
+    </main>
+
+    <footer>
+        <div class="barra foot">
+            <div class="lilas lilas_footer">
+                <i class="rama fa-brands fa-pagelines"></i>
+                <h1 class="titulo">Cabañas Las Lilas</h1>
+            </div>
+            <h2 class="ciudad">La Rioja - Argentina</h2>         
+        </div>
+        <div class="iconos">
+            <i class="icono fa-brands fa-whatsapp"></i>
+            <i class="icono fa-brands fa-instagram"></i>
+            <i class="icono fa-brands fa-facebook"></i>
+        </div>
+        <h3 class="insignia">@ Todos los Derechos Reservados</h3>
+        
+    </footer>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>    
+<script src="huespedes.js"></script>
+<script src="buscador.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+:root {
+    --fuentePrincipal: "Titillium Web", sans-serif;
+    --fuenteSecundaria: "Vina Sans", cursive;
+    --fuenteCursiva: "Great Vibes", cursive;
+    --moradoOscuro: #4b1c71;
+    --moradoClaro: #dbb6ee;
+    --marron: #e8c39e;
+    --crudo: #f5e1ce;
+  }
+
+.h1_registro{
+    text-align: center;
+    font-family: var(--fuentePrincipal);
+    color: var(--moradoOscuro);
+    margin-bottom: 3rem;
+    
+}
+
+
+.btn{
+    background-color: #dbb6ee;
+    color: #4b1c71;
+    font-family: var(--fuentePrincipal);
+    font-size: 2rem;
+    border: none;
+    padding: 1rem 0;
+    transition: 0.3s ease;
+    border-radius: 5px;
+}
+.btn:hover{
+    background-color: #4b1c71;
+    color: #e8c39e;
+    cursor: pointer;
+}
+.formulario{
+    margin-top: 6rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding-top: 1rem;
+}
+.input{
+    font-family: var(--fuentePrincipal);
+}
